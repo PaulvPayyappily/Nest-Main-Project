@@ -13,6 +13,9 @@ export const routes: Routes = [
         path:"contact",component:ContactComponent
       },
       {
+        path:":id/contact",component:ContactComponent
+      },
+      {
         path:":id",component:RecipeInstructionsComponent
       },
       {
