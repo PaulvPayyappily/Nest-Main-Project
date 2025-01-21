@@ -1,0 +1,63 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+  <!-- Recipe Image Section -->
+  <div class="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0">
+    <div class="flex-shrink-0 max-w-sm lg:max-w-md ml-24 mr-20">
+      <img [src]="recipe.image" alt="{{ recipe.name }}" style="height: 350px; object-fit: cover;" class="rounded-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 max-w-full">
+    </div>
+
+    <div class="lg:pl-8 space-y-8 ">
+      <div>
+        <h2 class="text-5xl font-extrabold text-gray-900 hover:text-teal-600 transition-all duration-300">{{ recipe.name }}</h2>
+        <div class="mt-4 text-lg text-gray-800 bg-teal-100 p-6 rounded-xl shadow-lg">
+          <p><strong class="font-semibold">Cuisine:</strong> {{ recipe.cuisine }}</p>
+          <p><strong class="font-semibold">Difficulty:</strong> {{ recipe.difficulty }}</p>
+          <p><strong class="font-semibold">Calories per serving:</strong> {{ recipe.caloriesPerServing }} kcal</p>
+          <p><strong class="font-semibold">Meal Type:</strong> {{ recipe.mealType.join(', ') }}</p>
+          <p><strong class="font-semibold">Rating: <span class="text-green-500 " > {{ recipe.rating }}/5</span></strong> ({{ recipe.reviewCount }} reviews)</p>
+        </div>
+      </div>
+
+      <!-- Time & Serving Info -->
+      <div class="bg-teal-100 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Time & Serving</h3>
+        <p class="text-lg text-gray-700"><strong>Prep Time:</strong> {{ recipe.prepTimeMinutes }} minutes</p>
+        <p class="text-lg text-gray-700"><strong>Cook Time:</strong> {{ recipe.cookTimeMinutes }} minutes</p>
+        <p class="text-lg text-gray-700"><strong>Servings:</strong> {{ recipe.servings }} servings</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-8 border-t-2 border-gray-200">
+
+  <!-- Recipe Details Section -->
+  <div class="flex justify-around">
+    <div class="space-y-6 mr-4" >
+
+      <div  >
+        <h4 class="text-3xl font-semibold text-gray-900 hover:text-teal-600 transition-all duration-300">Ingredients</h4>
+          <ul class="list-disc pl-6 text-gray-700 mt-4 space-y-2 text-lg">
+            @for (ingredient of recipe.ingredients; track ingredient.id) {
+              <li>{{ ingredient }}</li>
+            }
+          </ul>
+      </div>
+    </div>
+
+    <div class="lg:pl-8">
+      <div class="bg-white p-3 rounded-xl shadow-lg">
+        <h4 class="text-3xl font-semibold text-gray-900 hover:text-teal-600 transition-all duration-300">Instructions</h4>
+        <ol class="list-decimal pl-6 text-gray-700 mt-4 space-y-3 text-lg">
+          @for (instruction of recipe.instructions; track instruction.id) {
+            <li>{{ instruction }}</li>
+          }
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

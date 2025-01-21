@@ -1,0 +1,26 @@
+
+ <app-nav-bar></app-nav-bar>
+
+ <div class="container pt-3 pb-6 bg-teal-100 ">
+
+    <div class="text-center mb-10">
+        <h1 class="text-5xl font-extrabold text-gray-800 leading-tight tracking-wide">Delicious Recipes</h1>
+        <p class="text-lg text-gray-700 mt-3 max-w-lg mx-auto">Explore a curated collection of mouth-watering recipes designed to elevate your culinary experience!</p>
+    </div>
+
+    <div class="flex flex-wrap gap-5">
+
+        @for (item of data; track item.id) {
+
+    <app-cards [data]="item"></app-cards>
+  }
+ </div>
+
+ </div>
+
+ <app-footer></app-footer>
+    
+
+
+
+
